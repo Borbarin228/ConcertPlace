@@ -9,3 +9,5 @@ Route::get('/', function () {
 Route::get('/hello', function (){
     return view('hello',['title'=>'Hello world!']);
 });
+
+
