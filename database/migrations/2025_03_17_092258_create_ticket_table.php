@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id')->index();
             $table->integer('number');
             $table->foreignId('concert_id')->index();
-            $table->foreignId('category_id')->index();
+            $table->foreignId('category_id')->references('id')->on('ticket_categories');
         });
     }
 
