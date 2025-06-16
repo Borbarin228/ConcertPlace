@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Ticket extends Model
 {
+    protected $table = 'ticket';
+
     protected $fillable = [
         'user_id',
         'number',

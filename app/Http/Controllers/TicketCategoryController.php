@@ -11,4 +11,10 @@ class TicketCategoryController extends Controller
     public function index(){
         return view('ticketCategories', ['ticketCategories'=>Ticket_Category::all()]);
     }
+
+    public function show($id)
+    {
+        $category = Ticket_Category::with('tickets')->findOrFail($id);
+        return view('ticketCategories.show', compact('category'));
+    }
 }

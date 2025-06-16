@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Ticket_Category extends Model
 {
+    protected $table = 'ticket_categories';
     protected $fillable = [
         'name',
         'description',

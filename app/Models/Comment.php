@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Comment extends Model
 {
+    protected $table = 'comment';
+
     protected $fillable = [
         'user_id',
         'number',
