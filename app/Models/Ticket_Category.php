@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Ticket_Category extends Model
 {
@@ -23,6 +24,11 @@ class Ticket_Category extends Model
 
     public function concerts(): BelongsToMany
     {
-        return $this->belongsToMany(Concert::class, 'concert_category');
+        return $this->belongsToMany(Concert::class, 'concert_category', 'ticket_category_id', 'concert_id');
+    }
+
+    public function owner(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'owner_id');
     }
 }

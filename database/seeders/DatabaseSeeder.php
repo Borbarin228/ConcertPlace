@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         // Сначала создаем пользователя
         User::factory()->create([
             'name' => 'Test User',
-            'login' => 'test',
+            'email' => 'test@example.com',
             'password' => bcrypt('password'),
             'description' => 'Test user',
             'is_admin' => false
@@ -26,8 +26,10 @@ class DatabaseSeeder extends Seeder
 
         // Затем запускаем сидеры в правильном порядке
         $this->call([
-            TicketCategorySeeder::class, // Сначала категории билетов
-            ConcertSeeder::class,        // Потом концерты
+            TicketCategorySeeder::class,   // Сначала категории билетов
+            ConcertSeeder::class,          // Потом концерты
+            ConcertCategorySeeder::class,  // Связи между концертами и категориями
+            TicketSeeder::class,           // И наконец билеты
         ]);
     }
 }

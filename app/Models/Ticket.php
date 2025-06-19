@@ -20,4 +20,14 @@ class Ticket extends Model
     {
         return $this->belongsTo(Ticket_Category::class, 'category_id');
     }
+
+    public function concert(): BelongsTo
+    {
+        return $this->belongsTo(Concert::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

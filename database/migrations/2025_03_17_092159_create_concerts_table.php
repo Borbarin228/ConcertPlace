@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('concerts', function (Blueprint $table) {
@@ -16,7 +13,6 @@ return new class extends Migration
             $table->timestamps();
             $table->string('city');
             $table->string('place');
-            $table->foreignId('category_id')->index();
             $table->date('start_at');
             $table->boolean('is_accepted');
         });
@@ -31,9 +27,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('concerts');
